@@ -449,7 +449,7 @@ function updateHorizontalBarChart(columnPrefix) {
             return stack;
         });
 
-        const margin = { top: 50, right: 30, bottom: 40, left: 130 };
+        const margin = { top: 50, right: 30, bottom: 40, left: 135 };
         const width = document.getElementById('second-plot').offsetWidth - margin.left - margin.right;
         const height = document.getElementById('second-plot').offsetHeight - margin.top - margin.bottom;
 
@@ -704,5 +704,5 @@ function abbreviateLabel(label) {
     };
     const prefix = label.split('_')[0];
     const suffix = abbreviations[label] || label.split('_')[1];
-    return suffix.length > 18 ? suffix.slice(0, 18) + "..." : suffix;
+    return suffix.length > 17 ? suffix.slice(0, 17) + "..." : suffix;
 }
