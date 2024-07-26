@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map and Bar Chart</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='style.css' rel='stylesheet' />
+</head>
+<body>
+    <div id="map-title">GEOTAB 2023 TRUCK COUNTS</div>
+    <div id="map"></div>
+    <div class="container">
+        <div class="control-container">
+            <div class="checkbox-container">
+                <h3>Road Type</h3>
+                <label><input type="checkbox" id="motorway-checkbox" checked> Motorway</label>
+                <label><input type="checkbox" id="trunk-checkbox" checked> Trunk</label>
+                <label><input type="checkbox" id="primary-checkbox" checked> Primary</label>
+            </div>
+            <div class="button-dropdown-group">
+                <div class="button-dropdown">
+                    <button id="Month-button">Month</button>
+                    <select id="Month-select" disabled>
+                        <option value="None">None</option>
+                        <option value="Month_1">January</option>
+                        <option value="Month_2">February</option>
+                        <option value="Month_3">March</option>
+                        <option value="Month_4">April</option>
+                        <option value="Month_5">May</option>
+                        <option value="Month_6">June</option>
+                        <option value="Month_7">July</option>
+                        <option value="Month_8">August</option>
+                        <option value="Month_9">September</option>
+                        <option value="Month_10">October</option>
+                        <option value="Month_11">November</option>
+                        <option value="Month_12">December</option>
+                    </select>
+                </div>
+                <div class="button-dropdown">
+                    <button id="VehicleClass-button">Vehicle Class</button>
+                    <select id="VehicleClass-select" disabled>
+                        <option value="None">None</option>
+                        <option value="VehicleClass_Heavy">Heavy</option>
+                        <option value="VehicleClass_Medium">Medium</option>
+                        <option value="VehicleClass_Light">Light</option>
+                    </select>
+                </div>
+                <div class="button-dropdown">
+                    <button id="FuelType-button">Fuel Type</button>
+                    <select id="FuelType-select" disabled>
+                        <option value="None">None</option>
+                        <option value="FuelType_Diesel">Diesel</option>
+                        <option value="FuelType_Gasoline">Gasoline</option>
+                        <option value="FuelType_Flexible">Flexible</option>
+                        <option value="FuelType_Unknown">Unknown</option>
+                    </select>
+                </div>
+                <div class="button-dropdown">
+                    <button id="Vocation-button">Vocation</button>
+                    <select id="Vocation-select" disabled>
+                        <option value="None">None</option>
+                        <option value="Vocation_LongHaul">Long Haul</option>
+                        <option value="Vocation_Regional">Regional</option>
+                        <option value="Vocation_Local">Local</option>
+                        <option value="Vocation_HubAndSpoke">Hub and Spoke</option>
+                        <option value="Vocation_DoorToDoor">Door to Door</option>
+                    </select>
+                </div>
+                <div class="button-dropdown">
+                    <button id="NAICS_code-button">NAICS Code</button>
+                    <select id="NAICS_code-select" class="fixed-width-dropdown" disabled>
+                        <option value="None">None</option>
+                        <option value="NAICS_code_22">22: Utilities</option>
+                        <option value="NAICS_code_23">23: Construction</option>
+                        <option value="NAICS_code_31">31: Manufacturing (food, beverage, textile, apparel, leather)</option>
+                        <option value="NAICS_code_33">33: Manufacturing (metal, machinery, computer, appliance, automobile, furniture)</option>
+                        <option value="NAICS_code_42">42: Wholesale Trade</option>
+                        <option value="NAICS_code_44">44: Retail Trade (1)</option>
+                        <option value="NAICS_code_45">45: Retail Trade (2)</option>
+                        <option value="NAICS_code_48">48: Transportation</option>
+                        <option value="NAICS_code_49">49: Postal Service; Warehousing</option>
+                        <option value="NAICS_code_53">53: Real Estate and Rental and Leasing</option>
+                        <option value="NAICS_code_54">54: Professional, Scientific, and Technical Services</option>
+                        <option value="NAICS_code_56">56: Administrative and Support; Waste Management; Remediation Services</option>
+                        <option value="NAICS_code_81">81: Other Services</option>
+                        <option value="NAICS_code_92">92: Public Administration</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="bar-chart"></div>
+        <div id="second-plot"></div>
+    </div>
+    <div id="legend"></div>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
