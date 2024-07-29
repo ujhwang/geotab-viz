@@ -54,12 +54,24 @@ function getSelectedRoadTypes() {
 
 // Load the CSV data and initialize visualization
 let csvData = {};
-d3.csv("data/count/truck_counts.csv").then(function(data) {
-    data.forEach(d => {
-        csvData[d.SegmentId] = d;
-    });
 
-    // Initial load
+
+function loadDataAndInitialize() {
+    d3.csv("data/count/truck_counts.csv").then(function(data) {
+        data.forEach(d => {
+            csvData[d.SegmentId] = d;
+        });
+        initializeMap();
+    }).catch(function(error) {
+        console.error("Error loading CSV data:", error);
+        alert("Failed to load data. Refreshing the page.");
+        location.reload();
+    });
+}
+
+loadDataAndInitialize();
+
+function initializeMap() {
     map.on('load', function () {
         map.addSource('my-vector-tiles', {
             type: 'vector',
@@ -95,7 +107,7 @@ d3.csv("data/count/truck_counts.csv").then(function(data) {
                 'paint': {
                     'line-color': '#a3a2a2',
                     'line-width': 1,
-                    'line-dasharray': [2,2]
+                    'line-dasharray': [2, 2]
                 }
             });
 
@@ -114,9 +126,13 @@ d3.csv("data/count/truck_counts.csv").then(function(data) {
                     console.error('No features found in the specified source layer.');
                 }
             });
+        }).catch(function(error) {
+            console.error("Error loading GeoJSON data:", error);
+            alert("Failed to load map data. Refreshing the page.");
+            location.reload();
         });
     });
-});
+}
 
 // Function to update the map visualization
 function updateMap(column) {
