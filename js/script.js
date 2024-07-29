@@ -281,6 +281,9 @@ function updateMaxX(columnPrefix) {
 }
 
 function updateBarChart(column, adjustMaxY = true) {
+    // Hide the tooltip
+    d3.selectAll(".tooltip").style("visibility", "hidden");
+    
     d3.csv("data/count/truck_counts_time_of_day_summary.csv").then(function(data) {
         const selectedRoadTypes = getSelectedRoadTypes();
         const filteredData = data.filter(d => selectedRoadTypes.includes(d.RoadType));
