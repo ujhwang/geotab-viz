@@ -26,7 +26,8 @@ const colors = [
     "#e4b72b", // Yellow
     "#f69d2d", // Orange-yellow
     "#f77530", // Light red-orange
-    "#e63946"  // Red
+    "#e63946", // Red
+    "#c40817", // Dark red
 ]
 
 
@@ -54,6 +55,13 @@ function calculatePercentiles(values) {
     for (let i = 0; i <= 100; i += 10) {
         const index = Math.floor((i / 100) * (values.length - 1));
         percentiles.push(values[index]);
+
+        if (i == 90){
+            i += 5
+            const index = Math.floor((i / 100) * (values.length - 1));
+            percentiles.push(values[index]);
+            i -= 5
+        }
     }
     return percentiles;
 }
