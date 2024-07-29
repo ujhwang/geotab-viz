@@ -10,10 +10,25 @@ var map = new mapboxgl.Map({
 });
 
 // Define the color array for the map
+// const colors = [
+//     '#5c5c5c', '#1f0c48', '#550f6d', '#88226a', '#a83659',
+//     '#cb5046', '#ed6925', '#fb9b06', '#f7d13d', '#fcffa4', '#feffde'
+// ];
+
 const colors = [
-    '#5c5c5c', '#1f0c48', '#550f6d', '#88226a', '#a83659',
-    '#cb5046', '#ed6925', '#fb9b06', '#f7d13d', '#fcffa4', '#feffde'
-];
+    "#5c5c5c",
+    "#1e5732", // Dark green
+    "#2e7b47", // Medium dark green
+    "#3e9e5c", // Medium green
+    "#4fc873", // Light green
+    "#80c845", // Yellow-green
+    "#b6c830", // Light yellow
+    "#e4b72b", // Yellow
+    "#f69d2d", // Orange-yellow
+    "#f77530", // Light red-orange
+    "#e63946"  // Red
+]
+
 
 // Define the color array for road types
 const roadTypeColors = {
@@ -89,7 +104,7 @@ function initializeMap() {
             },
             'paint': {
                 'line-color': '#5c5c5c',
-                'line-width': 3
+                'line-width': 3.5
             }
         });
 
