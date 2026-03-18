@@ -10,6 +10,11 @@
       }
     }
   },
+  "login": {
+    "allowedExternalRedirectUrls": [
+      "https://atlantaregional.sharepoint.com"
+    ]
+  },
   "routes": [
     {
       "route": "/*",
